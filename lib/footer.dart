@@ -7,6 +7,10 @@ class AppFooter extends StatelessWidget {
     Navigator.pushNamed(context, '/about-us');
   }
 
+  void navigateToFaq(BuildContext context) {
+    Navigator.pushNamed(context, '/faq');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -60,10 +64,19 @@ class AppFooter extends StatelessWidget {
                     const SizedBox(height: 12),
                     // These links are placeholders and won't navigate anywhere
                     for (var link in ['FAQs', 'Contact Us', 'Shipping & Returns']) ...[
-                      Text(
-                        link,
-                        style: const TextStyle(color: Colors.grey, height: 1.5),
-                      ),
+                      if (link == 'FAQs')
+                        GestureDetector(
+                          onTap: () => navigateToFaq(context),
+                          child: const Text(
+                            'FAQs',
+                            style: TextStyle(color: Colors.grey, height: 1.5),
+                          ),
+                        )
+                      else
+                        Text(
+                          link,
+                          style: const TextStyle(color: Colors.grey, height: 1.5),
+                        ),
                       const SizedBox(height: 4),
                     ],
                   ],
