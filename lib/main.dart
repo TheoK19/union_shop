@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/about_us_page.dart';
+import 'package:union_shop/footer.dart';
 import 'package:union_shop/product_page.dart';
 
 void main() {
@@ -39,10 +40,6 @@ class HomeScreen extends StatelessWidget {
 
   void navigateToProduct(BuildContext context) {
     Navigator.pushNamed(context, '/product');
-  }
-
-  void navigateToAboutUs(BuildContext context) {
-    Navigator.pushNamed(context, '/about-us');
   }
 
   void placeholderCallbackForButtons() {
@@ -297,34 +294,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Footer
-            Container(
-              width: double.infinity,
-              color: Colors.grey[50],
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                children: [
-                  GestureDetector(
-                    onTap: () => navigateToAboutUs(context),
-                    child: const Text(
-                      'About Us',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    '© 2024 Union Shop',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const AppFooter(),
           ],
         ),
       ),
