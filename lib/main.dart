@@ -44,6 +44,10 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(context, '/product');
   }
 
+  void navigateToAboutUs(BuildContext context) {
+    Navigator.pushNamed(context, '/about-us');
+  }
+
   void placeholderCallbackForButtons() {
     // This is the event handler for buttons that don't work yet
   }
@@ -96,6 +100,18 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 );
                               },
+                            ),
+                          ),
+                          const Spacer(),
+                          TextButton(
+                            onPressed: () => navigateToAboutUs(context),
+                            child: const Text(
+                              'ABOUT US',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                                letterSpacing: 1,
+                              ),
                             ),
                           ),
                           const Spacer(),

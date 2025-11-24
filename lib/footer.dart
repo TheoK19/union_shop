@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
 
-  void navigateToAboutUs(BuildContext context) {
-    Navigator.pushNamed(context, '/about-us');
-  }
-
   void navigateToFaq(BuildContext context) {
     Navigator.pushNamed(context, '/faq');
   }
@@ -23,31 +19,6 @@ class AppFooter extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // About Us
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'ABOUT US',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    GestureDetector(
-                      onTap: () => navigateToAboutUs(context),
-                      child: const Text(
-                        'About the Union Shop',
-                        style: TextStyle(color: Colors.grey, height: 1.5),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
               // Quick Links
               Expanded(
                 child: Column(
