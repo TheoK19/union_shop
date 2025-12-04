@@ -266,6 +266,70 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const Text(
+                      'ESSENTIAL RANGE',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 48,
+                      children: const [
+                        ProductCard(
+                          title: 'Essential Hoodie',
+                          price: '£25.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/Unionessentialhoodie-black-front_1024x1024@2x.jpg?v=1708443902',
+                        ),
+                        ProductCard(
+                          title: 'Essential T-Shirt',
+                          price: '£12.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/T-shirt-navy-front_1024x1024@2x.jpg?v=1708443372',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 48),
+                    const Text(
+                      'SIGNATURE RANGE',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 48,
+                      children: const [
+                        ProductCard(
+                          title: 'Signature Hoodie',
+                          price: '£35.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/2022_HOODIE_CHARCOAL_2_1024x1024@2x.jpg?v=1663335555',
+                        ),
+                        ProductCard(
+                          title: 'Signature T-Shirt',
+                          price: '£15.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/T-shirt-navy-front_1024x1024@2x.jpg?v=1708443372',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 48),
+                    const Text(
                       'PRODUCTS SECTION',
                       style: TextStyle(
                         fontSize: 20,
