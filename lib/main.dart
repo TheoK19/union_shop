@@ -24,12 +24,12 @@ class UnionShopApp extends StatelessWidget {
       home: const HomeScreen(),
       // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
-      // When navigating to '/product', build and return the ProductPage
-      // In your browser, try this link: http://localhost:49856/#/product
+      // When navigating to a new page, build and return the corresponding page widget
       routes: {
         '/product': (context) => const ProductPage(),
         '/about-us': (context) => const AboutUsPage(),
         '/faq': (context) => const FaqPage(),
+        '/collections': (context) => const CollectionsPage(),
       },
     );
   }
@@ -48,6 +48,10 @@ class HomeScreen extends StatelessWidget {
 
   void navigateToAboutUs(BuildContext context) {
     Navigator.pushNamed(context, '/about-us');
+  }
+
+  void navigateToCollections(BuildContext context) {
+    Navigator.pushNamed(context, '/collections');
   }
 
   void placeholderCallbackForButtons() {
@@ -186,21 +190,20 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Hero Section
-            // Hero Section
-SizedBox(
-  height: 360,
-  width: double.infinity,
-  child: Stack(
-    children: [
-      // Background image (hoodies row)
-      Positioned.fill(
-        child: Image.network(
-          'https://images.pexels.com/photos/6311587/pexels-photo-6311587.jpeg',
-          fit: BoxFit.cover,
-          color: Colors.black.withOpacity(0.6), // dark overlay tint
-          colorBlendMode: BlendMode.darken,
-        ),
-      ),
+            SizedBox(
+              height: 360,
+              width: double.infinity,
+              child: Stack(
+                children: [
+                  // Background image (hoodies row)
+                  Positioned.fill(
+                    child: Image.network(
+                      'https://images.pexels.com/photos/6311587/pexels-photo-6311587.jpeg',
+                      fit: BoxFit.cover,
+                      color: Colors.black.withOpacity(0.6), // dark overlay tint
+                      colorBlendMode: BlendMode.darken,
+                    ),
+                  ),
 
                   // Content overlay
                   Positioned(
@@ -231,7 +234,7 @@ SizedBox(
                         ),
                         const SizedBox(height: 32),
                         ElevatedButton(
-                          onPressed: placeholderCallbackForButtons,
+                          onPressed: () => navigateToCollections(context),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4d2963),
                             foregroundColor: Colors.white,
@@ -240,7 +243,7 @@ SizedBox(
                             ),
                           ),
                           child: const Text(
-                            'BROWSE PRODUCTS',
+                            'BROWSE COLLECTIONS',
                             style: TextStyle(fontSize: 14, letterSpacing: 1),
                           ),
                         ),
@@ -394,7 +397,12 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Product: $title, Price: $price'),
+            duration: const Duration(seconds: 2),
+          ),
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
