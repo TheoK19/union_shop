@@ -28,6 +28,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 _navBarButton(context, 'ABOUT US', '/about-us'),
                 _navBarButton(context, 'SALE', '/sale'),
                 _navBarButton(context, 'COLLECTIONS', '/collections'),
+                _navBarButton(context, 'PRINT SHACK', '/print-shack'),
+                _navBarButton(context, 'FAQ', '/faq'),
               ],
             ),
             actions: [
@@ -76,11 +78,11 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 icon: const Icon(Icons.shopping_bag_outlined, color: Colors.grey),
                 onPressed: () {},
               ),
-              IconButton(
-                icon: const Icon(Icons.menu, color: Colors.black),
-                onPressed: () {
-                  // Dummy function, does nothing
-                },
+              Builder(
+                builder: (context) => IconButton(
+                  icon: const Icon(Icons.menu, color: Colors.black),
+                  onPressed: () => Scaffold.of(context).openEndDrawer(),
+                ),
               ),
             ],
           );
