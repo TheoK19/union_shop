@@ -16,21 +16,22 @@ class UnionShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-  title: 'Union Shop',
-  debugShowCheckedModeBanner: false,
-  theme: ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
-  ),
-  home: const HomeScreen(),
-  initialRoute: '/',
-  routes: {
-    '/': (context) => const HomeScreen(),
-    '/product': (context) => const ProductPage(),
-    '/about-us': (context) => const AboutUsPage(),
-    '/faq': (context) => const FaqPage(),
-    '/collections': (context) => const CollectionsPage(), // 👈 NEW
-  },
-);
+      title: 'Union Shop',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+      ),
+      home: const HomeScreen(),
+      // By default, the app starts at the '/' route, which is the HomeScreen
+      initialRoute: '/',
+      // When navigating to '/product', build and return the ProductPage
+      // In your browser, try this link: http://localhost:49856/#/product
+      routes: {
+        '/product': (context) => const ProductPage(),
+        '/about-us': (context) => const AboutUsPage(),
+        '/faq': (context) => const FaqPage(),
+      },
+    );
   }
 }
 
@@ -237,16 +238,17 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 32),
                         ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/collections');
-                          },
+                          onPressed: placeholderCallbackForButtons,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4d2963),
                             foregroundColor: Colors.white,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
                           ),
                           child: const Text(
-                            'BROWSE COLLECTIONS',
-                            style: TextStyle(letterSpacing: 1),
+                            'BROWSE PRODUCTS',
+                            style: TextStyle(fontSize: 14, letterSpacing: 1),
                           ),
                         ),
                       ],
