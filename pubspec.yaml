@@ -5,17 +5,33 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
+  
+  # For making HTTP requests to fetch data from APIs
+  http: ^1.1.0
+
+  # A simple state management solution
+  provider: ^6.0.5
+
+  # To display and cache images from the network
+  cached_network_image: ^3.3.0
+
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
