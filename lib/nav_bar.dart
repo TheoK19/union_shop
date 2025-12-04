@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:union_shop/cart_provider.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({super.key});
@@ -39,9 +41,40 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 icon: const Icon(Icons.person_outline, color: Colors.grey),
                 onPressed: () => Navigator.pushNamed(context, '/auth'),
               ),
-              IconButton(
-                icon: const Icon(Icons.shopping_bag_outlined, color: Colors.grey),
-                onPressed: () {},
+              Consumer<CartProvider>(
+                builder: (context, cart, child) => Stack(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.shopping_bag_outlined,
+                          color: Colors.grey),
+                      onPressed: () => Navigator.pushNamed(context, '/cart'),
+                    ),
+                    if (cart.items.isNotEmpty)
+                      Positioned(
+                        right: 5,
+                        top: 5,
+                        child: Container(
+                          padding: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          constraints: const BoxConstraints(
+                            minWidth: 16,
+                            minHeight: 16,
+                          ),
+                          child: Text(
+                            cart.items.length.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
               ),
               const SizedBox(width: 20),
             ],
@@ -72,9 +105,40 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 icon: const Icon(Icons.person_outline, color: Colors.grey),
                 onPressed: () => Navigator.pushNamed(context, '/auth'),
               ),
-              IconButton(
-                icon: const Icon(Icons.shopping_bag_outlined, color: Colors.grey),
-                onPressed: () {},
+              Consumer<CartProvider>(
+                builder: (context, cart, child) => Stack(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.shopping_bag_outlined,
+                          color: Colors.grey),
+                      onPressed: () => Navigator.pushNamed(context, '/cart'),
+                    ),
+                    if (cart.items.isNotEmpty)
+                      Positioned(
+                        right: 5,
+                        top: 5,
+                        child: Container(
+                          padding: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          constraints: const BoxConstraints(
+                            minWidth: 16,
+                            minHeight: 16,
+                          ),
+                          child: Text(
+                            cart.items.length.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
               ),
               IconButton(
                 icon: const Icon(Icons.menu, color: Colors.black),
