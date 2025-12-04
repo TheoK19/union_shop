@@ -35,7 +35,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             actions: [
               IconButton(
                 icon: const Icon(Icons.search, color: Colors.grey),
-                onPressed: () => Navigator.pushNamed(context, '/search'),
+                onPressed: () {},
               ),
               IconButton(
                 icon: const Icon(Icons.person_outline, color: Colors.grey),
@@ -68,7 +68,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             actions: [
               IconButton(
                 icon: const Icon(Icons.search, color: Colors.grey),
-                onPressed: () => Navigator.pushNamed(context, '/search'),
+                onPressed: () {},
               ),
               IconButton(
                 icon: const Icon(Icons.person_outline, color: Colors.grey),
