@@ -185,7 +185,7 @@ class HomeScreen extends StatelessWidget {
 
             // Hero Section
             SizedBox(
-              height: 400,
+              height: 360,
               width: double.infinity,
               child: Stack(
                 children: [
