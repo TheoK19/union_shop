@@ -5,6 +5,7 @@ import 'package:union_shop/footer.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/collections_page.dart';
 import 'package:union_shop/collection_detail_page.dart';
+import 'package:union_shop/sale_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -28,6 +29,7 @@ class UnionShopApp extends StatelessWidget {
           '/about-us': (context) => const AboutUsPage(),
           '/faq': (context) => const FaqPage(),
           '/collections': (context) => const CollectionsPage(),
+          '/sale': (context) => const SalePage(),
         },
         onGenerateRoute: (settings) {
           if (settings.name == '/collection-detail') {
@@ -61,6 +63,10 @@ class HomeScreen extends StatelessWidget {
 
   void navigateToCollections(BuildContext context) {
     Navigator.pushNamed(context, '/collections');
+  }
+
+  void navigateToSale(BuildContext context) {
+    Navigator.pushNamed(context, '/sale');
   }
 
   void placeholderCallbackForButtons() {
@@ -125,6 +131,18 @@ class HomeScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          TextButton(
+                            onPressed: () => navigateToSale(context),
+                            child: const Text(
+                              'SALE',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.red,
                                 letterSpacing: 1,
                               ),
                             ),
