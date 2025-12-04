@@ -60,6 +60,55 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const NavBar(),
+      endDrawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF4d2963),
+              ),
+              child: Text(
+                'Union Shop',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text('About Us'),
+              onTap: () {
+                Navigator.pushNamed(context, '/about-us');
+              },
+            ),
+            ListTile(
+              title: const Text('Sale'),
+              onTap: () {
+                Navigator.pushNamed(context, '/sale');
+              },
+            ),
+            ListTile(
+              title: const Text('Collections'),
+              onTap: () {
+                Navigator.pushNamed(context, '/collections');
+              },
+            ),
+            ListTile(
+              title: const Text('Print Shack'),
+              onTap: () {
+                Navigator.pushNamed(context, '/print-shack');
+              },
+            ),
+            ListTile(
+              title: const Text('FAQ'),
+              onTap: () {
+                Navigator.pushNamed(context, '/faq');
+              },
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
