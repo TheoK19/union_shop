@@ -16,22 +16,31 @@ class UnionShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Union Shop',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
-      ),
-      home: const HomeScreen(),
-      // By default, the app starts at the '/' route, which is the HomeScreen
-      initialRoute: '/',
-      // When navigating to a new page, build and return the corresponding page widget
-      routes: {
-        '/product': (context) => const ProductPage(),
-        '/about-us': (context) => const AboutUsPage(),
-        '/faq': (context) => const FaqPage(),
-        '/collections': (context) => const CollectionsPage(),
-      },
-    );
+        title: 'Union Shop',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+        ),
+        home: const HomeScreen(),
+        initialRoute: '/',
+        routes: {
+          '/product': (context) => const ProductPage(),
+          '/about-us': (context) => const AboutUsPage(),
+          '/faq': (context) => const FaqPage(),
+          '/collections': (context) => const CollectionsPage(),
+        },
+        onGenerateRoute: (settings) {
+          if (settings.name == '/collection-detail') {
+            final args = settings.arguments as Map<String, String>;
+            final collectionName = args['collectionName']!;
+            return MaterialPageRoute(
+              builder: (context) {
+                return CollectionDetailPage(collectionName: collectionName);
+              },
+            );
+          }
+          return null;
+        });
   }
 }
 
@@ -397,12 +406,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Product: $title, Price: $price'),
-            duration: const Duration(seconds: 2),
-          ),
-        );
+        Navigator.pushNamed(context, '/product');
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

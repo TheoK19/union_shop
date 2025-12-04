@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/collection_detail_page.dart';
 
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
@@ -43,13 +42,10 @@ class CollectionsPage extends StatelessWidget {
           final collection = collections[index];
           return GestureDetector(
             onTap: () {
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => CollectionDetailPage(
-                    collectionName: collection['title']!,
-                  ),
-                ),
+                '/collection-detail',
+                arguments: {'collectionName': collection['title']!},
               );
             },
             child: Card(
