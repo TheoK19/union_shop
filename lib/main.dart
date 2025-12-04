@@ -186,29 +186,22 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Hero Section
-            SizedBox(
-              height: 360,
-              width: double.infinity,
-              child: Stack(
-                children: [
-                  // Background image
-                  Positioned.fill(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.7),
-                        ),
-                      ),
-                    ),
-                  ),
+            // Hero Section
+SizedBox(
+  height: 360,
+  width: double.infinity,
+  child: Stack(
+    children: [
+      // Background image (hoodies row)
+      Positioned.fill(
+        child: Image.network(
+          'https://images.pexels.com/photos/6311587/pexels-photo-6311587.jpeg',
+          fit: BoxFit.cover,
+          color: Colors.black.withOpacity(0.6), // dark overlay tint
+          colorBlendMode: BlendMode.darken,
+        ),
+      ),
+
                   // Content overlay
                   Positioned(
                     left: 24,
@@ -285,15 +278,15 @@ class HomeScreen extends StatelessWidget {
                         ProductCard(
                           title: 'Essential Hoodie',
                           price: '£25.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/Unionessentialhoodie-black-front_1024x1024@2x.jpg?v=1708443902',
+                          imageUrl: 'https://images.pexels.com/photos/6958620/pexels-photo-6958620.jpeg',
                         ),
+
                         ProductCard(
                           title: 'Essential T-Shirt',
                           price: '£12.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/T-shirt-navy-front_1024x1024@2x.jpg?v=1708443372',
-                        ),
+                          imageUrl: 'https://images.pexels.com/photos/9558567/pexels-photo-9558567.jpeg',
+                          ),
+
                       ],
                     ),
                     const SizedBox(height: 48),
@@ -314,17 +307,16 @@ class HomeScreen extends StatelessWidget {
                       crossAxisSpacing: 24,
                       mainAxisSpacing: 48,
                       children: const [
-                        ProductCard(
+                                                ProductCard(
                           title: 'Signature Hoodie',
                           price: '£35.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/2022_HOODIE_CHARCOAL_2_1024x1024@2x.jpg?v=1663335555',
+                          imageUrl: 'https://images.pexels.com/photos/4909505/pexels-photo-4909505.jpeg',
                         ),
+
                         ProductCard(
                           title: 'Signature T-Shirt',
                           price: '£15.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/T-shirt-navy-front_1024x1024@2x.jpg?v=1708443372',
+                          imageUrl: 'https://images.pexels.com/photos/2112648/pexels-photo-2112648.jpeg',
                         ),
                       ],
                     ),
