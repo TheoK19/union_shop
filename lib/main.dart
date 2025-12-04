@@ -10,6 +10,7 @@ import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/nav_bar.dart';
 import 'package:union_shop/print_shack_page.dart';
 import 'package:union_shop/print_shack_about_page.dart';
+import 'package:union_shop/search_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -37,6 +38,7 @@ class UnionShopApp extends StatelessWidget {
           '/auth': (context) => const AuthPage(),
           '/print-shack': (context) => const PrintShackPage(),
           '/print-shack-about': (context) => const PrintShackAboutPage(),
+          '/search': (context) => const SearchPage(),
         },
         onGenerateRoute: (settings) {
           if (settings.name == '/collection-detail') {
