@@ -10,11 +10,8 @@ import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/nav_bar.dart';
 import 'package:union_shop/print_shack_page.dart';
 import 'package:union_shop/print_shack_about_page.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const UnionShopApp());
 }
 
