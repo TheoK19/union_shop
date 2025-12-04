@@ -26,6 +26,18 @@ class CollectionsService {
         imageUrl:
             'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
       ),
+      Collection(
+        name: 'Graduation',
+        description: 'Celebrate your achievement with our graduation collection.',
+        imageUrl:
+            'https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg',
+      ),
+      Collection(
+        name: 'Autumn',
+        description: 'Stay warm and stylish with our autumn collection.',
+        imageUrl:
+            'https://images.pexels.com/photos/5710185/pexels-photo-5710185.jpeg',
+      ),
     ];
   }
 }
