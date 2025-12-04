@@ -3,6 +3,8 @@ import 'package:union_shop/about_us_page.dart';
 import 'package:union_shop/faq_page.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/product_page.dart';
+import 'package:union_shop/collections_page.dart';
+import 'package:union_shop/collection_detail_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -14,22 +16,21 @@ class UnionShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Union Shop',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
-      ),
-      home: const HomeScreen(),
-      // By default, the app starts at the '/' route, which is the HomeScreen
-      initialRoute: '/',
-      // When navigating to '/product', build and return the ProductPage
-      // In your browser, try this link: http://localhost:49856/#/product
-      routes: {
-        '/product': (context) => const ProductPage(),
-        '/about-us': (context) => const AboutUsPage(),
-        '/faq': (context) => const FaqPage(),
-      },
-    );
+  title: 'Union Shop',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(
+    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+  ),
+  home: const HomeScreen(),
+  initialRoute: '/',
+  routes: {
+    '/': (context) => const HomeScreen(),
+    '/product': (context) => const ProductPage(),
+    '/about-us': (context) => const AboutUsPage(),
+    '/faq': (context) => const FaqPage(),
+    '/collections': (context) => const CollectionsPage(), // 👈 NEW
+  },
+);
   }
 }
 
