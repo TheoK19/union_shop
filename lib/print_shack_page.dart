@@ -31,7 +31,7 @@ class PrintShackPage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const Text(
-                'Your one-stop shop for all your printing needs. We offer a wide range of services, from document printing to custom apparel.',
+                'Your one-stop shop for text personalization. Add your own custom text to a variety of products like apparel, mugs, and more.',
                 style: TextStyle(
                   fontSize: 18,
                   height: 1.5,
@@ -49,7 +49,7 @@ class PrintShackPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                 ),
                 child: const Text(
-                  'LEARN MORE',
+                  'GET STARTED',
                   style: TextStyle(fontSize: 16, letterSpacing: 1),
                 ),
               ),
