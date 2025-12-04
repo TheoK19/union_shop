@@ -11,42 +11,6 @@ import 'package:union_shop/nav_bar.dart';
 import 'package:union_shop/print_shack_page.dart';
 import 'package:union_shop/print_shack_about_page.dart';
 
-class CartItem {
-  final String title;
-  final String imageUrl;
-  final double price;
-  int quantity;
-
-  CartItem({
-    required this.title,
-    required this.imageUrl,
-    required this.price,
-    this.quantity = 1,
-  });
-}
-
-// Global cart list (very simple approach)
-final List<CartItem> cartItems = [];
-
-void addToCart(String title, String priceText, String imageUrl) {
-  // priceText looks like '£25.00' → we strip the £ and parse
-  final price =
-      double.tryParse(priceText.replaceAll('£', '').trim()) ?? 0.0;
-
-  // If item already in cart, just increase quantity
-  final existingIndex =
-      cartItems.indexWhere((item) => item.title == title);
-  if (existingIndex != -1) {
-    cartItems[existingIndex].quantity++;
-  } else {
-    cartItems.add(
-      CartItem(title: title, imageUrl: imageUrl, price: price),
-    );
-  }
-}
-
-
-
 void main() {
   runApp(const UnionShopApp());
 }

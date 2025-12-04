@@ -28,7 +28,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 _navBarButton(context, 'ABOUT US', '/about-us'),
                 _navBarButton(context, 'SALE', '/sale'),
                 _navBarButton(context, 'COLLECTIONS', '/collections'),
-                _navBarButton(context, 'PRINT SHACK', '/print-shack'),
               ],
             ),
             actions: [
