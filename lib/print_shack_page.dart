@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/print_shack_about_page.dart';
 
 class PrintShackPage extends StatefulWidget {
   const PrintShackPage({super.key});
@@ -97,6 +98,16 @@ class _PrintShackPageState extends State<PrintShackPage> {
             Text(
               'Price: £${_price.toStringAsFixed(2)}',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PrintShackAboutPage()),
+                );
+              },
+              child: const Text('Learn More'),
             ),
           ],
         ),
