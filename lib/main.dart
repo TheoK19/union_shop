@@ -322,7 +322,7 @@ SizedBox(
                     ),
                     const SizedBox(height: 48),
                     const Text(
-                      'PRODUCTS SECTION',
+                      'PORTSMOUTH CITY COLLECTION',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.black,
