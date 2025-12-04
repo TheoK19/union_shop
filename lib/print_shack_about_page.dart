@@ -7,24 +7,67 @@ class PrintShackAboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About Print Shack'),
+        title: const Text('About the Print Shack'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'About Print Shack',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Welcome to the Print Shack, your one-stop shop for custom apparel. We offer a wide range of products, including hoodies and t-shirts, that you can personalise with your own text. Our state-of-the-art printing technology ensures a high-quality finish every time. Whether you want to create a unique gift or express your own style, the Print Shack has you covered.',
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Our Services',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 24),
+              _buildServiceItem(
+                context,
+                'Document Printing',
+                'High-quality printing for all your academic and personal needs. We offer a variety of paper sizes and finishes.',
+              ),
+              _buildServiceItem(
+                context,
+                'Custom Apparel',
+                'Personalize your clothing with our custom printing services. We can print on t-shirts, hoodies, and more.',
+              ),
+              _buildServiceItem(
+                context,
+                'Poster Printing',
+                'Make a statement with our large-format poster printing. Perfect for presentations, events, and room decor.',
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildServiceItem(
+      BuildContext context, String title, String description) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            description,
+            style: const TextStyle(
+              fontSize: 18,
+              height: 1.5,
+            ),
+          ),
+        ],
       ),
     );
   }

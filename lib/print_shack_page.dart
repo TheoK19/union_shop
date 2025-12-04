@@ -1,31 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/print_shack_about_page.dart';
 
-class PrintShackPage extends StatefulWidget {
+class PrintShackPage extends StatelessWidget {
   const PrintShackPage({super.key});
-
-  @override
-  _PrintShackPageState createState() => _PrintShackPageState();
-}
-
-class _PrintShackPageState extends State<PrintShackPage> {
-  String _productType = 'Hoodie';
-  String _color = 'Black';
-  String _text = '';
-  double _price = 25.00;
-
-  void _updatePrice() {
-    setState(() {
-      if (_productType == 'Hoodie') {
-        _price = 25.00;
-      } else {
-        _price = 15.00;
-      }
-      if (_text.isNotEmpty) {
-        _price += 5.00;
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,83 +9,52 @@ class _PrintShackPageState extends State<PrintShackPage> {
       appBar: AppBar(
         title: const Text('Print Shack'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Personalise your product',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            DropdownButtonFormField<String>(
-              value: _productType,
-              items: const ['Hoodie', 'T-Shirt'].map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  _productType = newValue!;
-                  _updatePrice();
-                });
-              },
-              decoration: const InputDecoration(
-                labelText: 'Product Type',
-                border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Welcome to the Print Shack',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            DropdownButtonFormField<String>(
-              value: _color,
-              items: const ['Black', 'White', 'Grey'].map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  _color = newValue!;
-                });
-              },
-              decoration: const InputDecoration(
-                labelText: 'Color',
-                border: OutlineInputBorder(),
+              const SizedBox(height: 24),
+              Image.network(
+                'https://images.pexels.com/photos/196658/pexels-photo-196658.jpeg',
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
               ),
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              onChanged: (value) {
-                setState(() {
-                  _text = value;
-                  _updatePrice();
-                });
-              },
-              decoration: const InputDecoration(
-                labelText: 'Text to print',
-                border: OutlineInputBorder(),
+              const SizedBox(height: 24),
+              const Text(
+                'Your one-stop shop for all your printing needs. We offer a wide range of services, from document printing to custom apparel.',
+                style: TextStyle(
+                  fontSize: 18,
+                  height: 1.5,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Price: £${_price.toStringAsFixed(2)}',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const PrintShackAboutPage()),
-                );
-              },
-              child: const Text('Learn More'),
-            ),
-          ],
+              const SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/print-shack-about'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF4d2963),
+                  foregroundColor: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                ),
+                child: const Text(
+                  'LEARN MORE',
+                  style: TextStyle(fontSize: 16, letterSpacing: 1),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
