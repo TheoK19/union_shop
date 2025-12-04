@@ -23,7 +23,7 @@ class AboutUsPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Image.network(
-                'https://shop.upsu.net/cdn/shop/files/Screenshot_2024-03-12_at_15.36.12_1024x1024.png?v=1709652991',
+                'https://images.pexels.com/photos/1202849/pexels-photo-1202849.jpeg',
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
